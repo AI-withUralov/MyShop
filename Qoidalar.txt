@@ -1,0 +1,4 @@
+Reactda 3 xil componentlar bor :
+    1) Screen - eng katta componentlar
+    2) Section - Screen ichidagi componentlar
+    3) Reusable - qayta qayta ishlatiladigan eng kichik componentlar
