@@ -28,7 +28,7 @@ export function HomeNavbar() {
             </Box>
             {authMember ? (
               <Box className="hover-line">
-                <NavLink to="/orders" activeClassName={"underline"}>
+                <NavLink to="/orders" >
                   Orders
                 </NavLink>
               </Box>
