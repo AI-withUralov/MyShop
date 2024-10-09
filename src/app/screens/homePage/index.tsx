@@ -1,6 +1,15 @@
 import { Container } from "@mui/material";
+import Statistics from "./Statistics";
+import '../../../css/home.css'
+
 
  export default function HomePage() {
-    return <Container>HomePage</Container>;
+    return (
+    <div className={"homepage"}>
+      <Statistics/>
+      sfs
+    </div>)
+
+    
   }
   
