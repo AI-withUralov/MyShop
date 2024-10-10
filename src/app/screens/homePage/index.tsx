@@ -1,5 +1,6 @@
 import { Container } from "@mui/material";
 import Statistics from "./Statistics";
+import PopularDishes from "./PopularDishes";
 import '../../../css/home.css'
 
 
@@ -7,7 +8,7 @@ import '../../../css/home.css'
     return (
     <div className={"homepage"}>
       <Statistics/>
-      sfs
+      <PopularDishes/>
     </div>)
 
     
