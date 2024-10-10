@@ -2,6 +2,7 @@ import { Container } from "@mui/material";
 import Statistics from "./Statistics";
 import PopularDishes from "./PopularDishes";
 import '../../../css/home.css'
+import NewDishes from "./NewDishes";
 
 
  export default function HomePage() {
@@ -9,6 +10,7 @@ import '../../../css/home.css'
     <div className={"homepage"}>
       <Statistics/>
       <PopularDishes/>
+      <NewDishes/>
     </div>)
 
     
