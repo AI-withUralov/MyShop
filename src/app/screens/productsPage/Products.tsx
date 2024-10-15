@@ -37,7 +37,7 @@ export default function Products() {
                 placeholder="Type here..."
                 />
                 <Button
-                color={"warning"} 
+                color={"primary"} 
                 variant={"contained"}
                 className={"search-btn"}
                 >
@@ -51,7 +51,7 @@ export default function Products() {
               <Stack className={"dishes-filter-box"}>
                 <Button
                   variant={"contained"}
-                  color={"warning"}
+                  color={"primary"}
                   className={"order"}
                 >
                   New
@@ -79,16 +79,16 @@ export default function Products() {
                   <Button variant={"contained"} color={"secondary"}>
                     Other
                   </Button>
-                  <Button variant={"contained"} color={"warning"}>
+                  <Button variant={"contained"} color={"primary"}>
                     Dessert
                   </Button>
-                  <Button variant={"contained"} color={"warning"}>
+                  <Button variant={"contained"} color={"primary"}>
                     Drink
                   </Button>
-                  <Button variant={"contained"} color={"warning"}>
+                  <Button variant={"contained"} color={"primary"}>
                     Salad
                   </Button>
-                  <Button variant={"contained"} color={"warning"}>
+                  <Button variant={"contained"} color={"primary"}>
                     Dish
                   </Button>
                 </div>
