@@ -376,7 +376,7 @@ input:focus {
     background: rgb(13, 21, 24);
 }
 
-.products-page .products .brands-logo .restaurant-logo {
+.products-page .products .brands-logo .family-brands {
     width: 100%;
     height: auto;
     display: flex;
@@ -384,10 +384,10 @@ input:focus {
     align-items: center;
 }
 
-.products-page .products .brands-logo .family-brands {
+.products-page .products .brands-logo .family-brands .category-title {
     width: 305px;
     height: 46px;
-    margin-top: 70px;
+    margin-top: 10px;
     font-family: 'Roboto';
     font-size: 36px;
     font-weight: 700;
@@ -397,7 +397,7 @@ input:focus {
     color: rgb(227, 192, 141);
 }
 
-.products-page .products .brands-logo .restaurant-img {
+.products-page .products .brands-logo  .brand-list {
     width: auto;
     height: auto;
     display: flex;
@@ -406,7 +406,7 @@ input:focus {
     justify-content: center;
 }
 
-.products-page .products .brands-logo .card {
+.products-page .products .brands-logo img {
     width: 259px;
     height: 350px;
     margin: 50px 0px 0px 50px;
@@ -420,7 +420,7 @@ input:focus {
     background: rgb(13, 21, 24);
 }
 
-.products-page .products .brands-logo .card img {
+.products-page .products .brands-logo  img {
     width: 238px;
     height: 329px;
     background-size: contain;
