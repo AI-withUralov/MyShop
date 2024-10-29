@@ -10,7 +10,7 @@ import './css/index.css';
 import theme from '././app/MaterialTheme';
 import { BrowserRouter as Router } from 'react-router-dom';
 
-const container = document.getElementById('root')!; // Typescriptga bu null emas deb aytadi.
+const container = document.getElementById('root')!; // ! Typescriptga bu null emas deb aytadi.
 const root = createRoot(container);
 
 root.render(

@@ -258,56 +258,48 @@
 
 .homepage .active-users-frame {
   width: 100%;
-  height: auto;
-
+  height: 605px;
+  background: #f8f8f8;
   display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 .homepage .active-users-frame .main {
+  margin-top: 80px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
 }
 
 .homepage .active-users-frame .category-title {
-  font-family: "Dancing Script";
-  font-size: 36px;
-  font-weight: 700;
-  text-align: center;
-  margin-bottom: 20px;
+font-family: Roboto Serif;
+font-size: 36px;
+font-weight: 600;
+line-height: 42px;
+letter-spacing: 0%;
+text-align: left;
+color: rgb(52, 52, 52);
 }
 
-.homepage .cards-frame {
-  display: flex;    
-  justify-content: center;
+.homepage .active-users-frame .main .cards-frame {
   width: 100%;
+  margin: 30px 0px 0px 0px;
   flex-direction: row;
+  justify-content: space-between;
 }
 
-.homepage .cards-frame .card {
-  width: 200px;                  
-  height: auto;
+.homepage .active-users-frame .main .card {
+  height: 345px;
+  width: 305px;
   cursor: pointer;
-  margin-left: 10px;
+}
+
+.homepage .active-users-frame .main .card .member-nickname {
   display: flex;
-  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
-  border-radius: 10px;
-}
-
-.homepage .cards-frame .card img {
-  width: 100%;             
-  height: auto;
-}
-
-.homepage .cards-frame .nickname {
-  font-family: "Dancing Script";
+  justify-content: center;
+  font-weight: 500;
+  font-family: 'Roboto Serif';
+  font-style: normal;
   font-size: 18px;
-  font-weight: 400;
-  color: #000;
-  text-align: center;
 }
 
 .homepage .active-users-frame .no-data {
@@ -317,14 +309,13 @@
   justify-content: center;
   align-items: center;
   text-transform: capitalize;
-  font-family: "Poppins";
+  font-family: 'Poppins';
   font-style: normal;
   font-weight: 400;
   font-size: 30px;
   line-height: 34px;
   color: #e3c08d;
 }
-
 
 /** EVENTS **/
 
