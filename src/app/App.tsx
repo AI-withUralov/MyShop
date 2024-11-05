@@ -18,7 +18,7 @@ function App() {
 
     return (
       <>
-
+      
       {location.pathname === "/" ? <HomeNavbar/> : <OtherNavbar/>}
       <Switch>
         <Route path="/products">
@@ -34,15 +34,13 @@ function App() {
           <HelpPage/>
         </Route>
         <Route path="/">
-          <HomePage />
+          <HomePage/>
         </Route>
       </Switch>
       <Footer/>
     </>
     
     );
-    
-
 }
 
 export default App;

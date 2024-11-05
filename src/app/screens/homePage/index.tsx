@@ -5,9 +5,7 @@ import NewDishes from "./NewDishes";
 import Advertisement from "./Advertisement";
 import ActiveUsers from "./AcitveUsers";
 import Events from "./Events";
-import '../../../css/home.css'
-
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch} from "react-redux";
 import { Dispatch } from "@reduxjs/toolkit";
 import { setNewDishes, setPopularDishes, setTopUsers } from "./slice";
 import { Product } from "../../../lib/types/product";
@@ -16,6 +14,7 @@ import { ProductCollection } from "../../../lib/enums/product-enum";
 import ProductService from "../../services/ProductService"
 import { Member } from "../../../lib/types/member";
 import MemberService from "../../services/MemberService";
+import '../../../css/home.css'
 
 /** REDUX SLICE & SELECTOR */
 const actionDispatch = (dispatch: Dispatch) => ({
