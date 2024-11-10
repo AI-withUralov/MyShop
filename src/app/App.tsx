@@ -31,8 +31,24 @@ function App() {
     return (
       <>
 
-      {location.pathname === "/" ? <HomeNavbar cartItems={cartItems}onAdd={onAdd} onRemove={onRemove} onDeleteAll={onDeleteAll} onDelete={onDelete}  /> 
-      : <OtherNavbar cartItems={cartItems} onAdd={onAdd}  onRemove={onRemove} onDeleteAll={onDeleteAll} onDelete={onDelete} />}
+      {location.pathname === "/" ? <HomeNavbar 
+      cartItems={cartItems}
+      onAdd={onAdd} 
+      onRemove={onRemove} 
+      onDeleteAll={onDeleteAll} 
+      onDelete={onDelete}  
+      setSignupOpen={setSignupOpen} 
+      setLoginOpen={setLoginOpen}
+      /> 
+      : <OtherNavbar
+      cartItems={cartItems} 
+      onAdd={onAdd}  
+      onRemove={onRemove} 
+      onDeleteAll={onDeleteAll} 
+      onDelete={onDelete} 
+      setSignupOpen={setSignupOpen} 
+      setLoginOpen={setLoginOpen}
+      />}
       <Switch>
         <Route path="/products">
           <ProductsPage onAdd = {onAdd} />

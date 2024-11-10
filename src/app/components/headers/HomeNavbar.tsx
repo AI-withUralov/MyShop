@@ -10,30 +10,18 @@ interface HomeNavbarProps {
     onRemove: (item: CartItem) => void;
     onDelete: (item: CartItem) => void;
     onDeleteAll: () => void;
+    setSignupOpen:(isopen: boolean) => void;
+    setLoginOpen:(isopen: boolean) => void;
 }
 
 
 export default function HomeNavbar(props: HomeNavbarProps) {
-    const {cartItems, onAdd, onDelete, onRemove, onDeleteAll} = props
+    const {cartItems, onAdd, onDelete, onRemove, onDeleteAll, setSignupOpen, setLoginOpen} = props
     const authMember = false;
 
-    const [count, setCount] = useState(0);
-    const [value, setValue] = useState(true);
-  
-    useEffect(() => {
-      console.log("componentDidMount",count); // DATA FETCH
-      setCount(count + 1);
-  
-      return () => {
-        console.log("componentWillUnmount");
-      };
-    }, [value]); // ComponentDidUpdate
-  
 
     /** Handlers */
-    const buttonHandler = () => {
-       setValue(!value)
-    }
+   
 
     return (
     <div className="home-navbar">
@@ -70,7 +58,7 @@ export default function HomeNavbar(props: HomeNavbarProps) {
                 <Basket  cartItems={cartItems} onAdd={onAdd}  onRemove={onRemove} onDeleteAll={onDeleteAll} onDelete={onDelete}  />
                 {!authMember ? (
                     <Box>
-                        <Button className="login-button" variant="contained">Login</Button>
+                        <Button className="login-button" variant="contained" onClick={()=> setLoginOpen(true)}>Login</Button>
                     </Box>
                     ) : (
                     <img 
@@ -90,13 +78,13 @@ export default function HomeNavbar(props: HomeNavbarProps) {
                         The Choice, not just a choice
                     </Box>
                     <Box className={"service-text"}>
-                        {count} hours service
+                        24 hours service
                     </Box>
                     <Box className={"signup"}>
                         {!authMember ? (
                             <Button 
                             variant={"contained"} 
-                            className={"signup-button"} onClick={buttonHandler}>
+                            className={"signup-button"} onClick={()=> setSignupOpen(true)}>
                                 SIGN UP
                                 
                             </Button>
