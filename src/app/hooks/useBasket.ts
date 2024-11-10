@@ -52,7 +52,7 @@ const useBasket = () => {
         );
         setCartItems(cartUpdate);
         localStorage.setItem("cartData", JSON.stringify(cartUpdate));
-    }; 
+    };  
 
     const onDeleteAll = () => {
         setCartItems([]); // bo'sh array qaytaradi
