@@ -5,9 +5,15 @@ import ChosenProduct from "./ChosenProduct";
 import Products from "./Products";
 import "../../../css/products.css"
 import theme from "../../MaterialTheme/index";
+import { CartItem } from "../../../lib/types/search";
 
 
-export default function ProductsPage() {
+interface ProductsPageProps{
+  onAdd: (item: CartItem) => void
+}
+
+export default function ProductsPage(props: ProductsPageProps) {
+  const {onAdd} = props
   const products = useRouteMatch();
   console.log("products:", products);
 
@@ -15,10 +21,10 @@ export default function ProductsPage() {
     <div className="products-page">
       <Switch>
         <Route path={`${products.path}/:productId`}>
-          <ChosenProduct />
+          <ChosenProduct  onAdd={onAdd} />
         </Route>
         <Route path={`${products.path}`}>
-          <Products />
+          <Products onAdd={onAdd} />
         </Route>
       </Switch>
 
