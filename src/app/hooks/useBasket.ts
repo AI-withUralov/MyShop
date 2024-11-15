@@ -31,7 +31,7 @@ const useBasket = () => {
         );
         if (exist.quantity === 1) {
             const cartUpdate = cartItems.filter(
-                (item: CartItem) => item._id !== input._id
+                (item: CartItem) => item._id !== input._id  // agar 1 dona item bulsa uni  yuq qiladi
             );
             setCartItems(cartUpdate);
             localStorage.setItem("cartData", JSON.stringify(cartUpdate));
@@ -48,14 +48,14 @@ const useBasket = () => {
     
     const onDelete = (input: CartItem) => {
         const cartUpdate = cartItems.filter(
-            (item: CartItem) => item._id !== input._id
+            (item: CartItem) => item._id !== input._id // butunlay uchirib tashlaydi
         );
         setCartItems(cartUpdate);
         localStorage.setItem("cartData", JSON.stringify(cartUpdate));
     };  
 
     const onDeleteAll = () => {
-        setCartItems([]); // bo'sh array qaytaradi
+        setCartItems([]); // savatdagi hamma narsani o'chiradi
         localStorage.removeItem("cartData")
     }
     
