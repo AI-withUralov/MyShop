@@ -29,6 +29,8 @@ function App() {
     const [signupOpen, setSignupOpen] = useState<boolean>(false);
     const [loginOpen, setLoginOpen] = useState<boolean>(false);
     const [anchorEl, setAnchorEl] = useState<HTMLElement | null> (null)
+
+
     /** HANDLERS **/
     
     const handleSignupClose = () => setSignupOpen(false);
