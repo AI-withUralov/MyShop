@@ -54,10 +54,10 @@ export default function FinishedOrders() {
                 <Box className="box-total">
                     <p>Product price</p>
                     <p>${order.orderTotal + order.orderDelivery}</p>
-                    <img src="/icons/plus.svg" style={{ marginLeft: "20px" }} />
+                    <img src="/icons/plus.svg" style={{ marginLeft: "5px" }} />
                     <p>Delivery cost</p>
                     <p>${order.orderDelivery}</p>
-                    <img src="/icons/pause.svg" style={{ marginLeft: "20px" }} />
+                    <img src="/icons/pause.svg" style={{ marginLeft: "5px" }} />
                     <p>Total</p>
                 </Box>
                 <p>${order.orderTotal}</p>
