@@ -15,7 +15,7 @@ import { sweetErrorHandling } from "../../../lib/sweetAlert";
 import { T } from "../../../lib/types/common";
 import OrderService from "../../services/OrderService";
 
-/** REDUX SLICE & SELECTOR */
+/** REDUX SELECTOR */
 const pausedOrdersRetriever = createSelector(retrievePausedOrders,
   (pausedOrders) => ({ pausedOrders })
 );
@@ -25,14 +25,14 @@ interface PausedOrderProps {
 
 export default function PausedOrders(props: PausedOrderProps) {
   const {setValue} = props;
-  const {authMember, setOrderBuilder} = useGlobals();
+  const {authMember, setOrderBuilder} = useGlobals(); // 8 - authMember va setOrderBuilder larni useGlobals dan qabul qilamiz
   const {pausedOrders} = useSelector(pausedOrdersRetriever)
 
 // HANDLERS
 
 const deleteOrderHandler = async (e: T) => {
   try {
-      if (!authMember) throw new Error(Messages.error2);
+      if (!authMember) throw new Error(Messages.error2); // Member Authenticate bulganligini tekshiradi
       const orderId = e.target.value;
       const input: OrderUpdateInput = {
           orderId: orderId,
@@ -44,7 +44,7 @@ const deleteOrderHandler = async (e: T) => {
       if (confirmation) {
           const order = new OrderService();
           await order.updateOrder(input);
-          setOrderBuilder(new Date());
+          setOrderBuilder(new Date());  // uzgarish bulganda orderni qayta qurib beradi
       }
   } catch (err) {
       console.log(err);
@@ -54,7 +54,7 @@ const deleteOrderHandler = async (e: T) => {
 
 const processOrderHandler = async (e: T) => {
   try {
-      if (!authMember) throw new Error(Messages.error2);
+      if (!authMember) throw new Error(Messages.error2); // Member Authenticate bulganligini tekshiradi
 
       // PAYMENT PROCESS
 
@@ -71,7 +71,7 @@ const processOrderHandler = async (e: T) => {
           const order = new OrderService();
           await order.updateOrder(input);
           setValue("2");
-          setOrderBuilder(new Date());
+          setOrderBuilder(new Date());  // uzgarish bulganda orderni qayta qurib beradi
       }
   } catch (err) {
       console.log(err);

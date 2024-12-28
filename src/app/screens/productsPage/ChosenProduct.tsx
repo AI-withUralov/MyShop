@@ -8,9 +8,9 @@ import Rating from "@mui/material/Rating";
 import { FreeMode, Navigation, Thumbs } from "swiper";
 import { useDispatch, useSelector } from "react-redux";
 import { Dispatch } from "@reduxjs/toolkit";
-import { setRestaurant, setChosenProduct } from "./slice";
+import { setShop, setChosenProduct } from "./slice";
 import { createSelector } from "reselect";
-import { retrieveChosenProduct, retrieveRestaurant } from "./selector";
+import { retrieveChosenProduct, retrieveShop } from "./selector";
 import { Product } from "../../../lib/types/product";
 import { Member } from "../../../lib/types/member";
 import { useParams } from "react-router-dom";
@@ -25,7 +25,7 @@ import "swiper/css/thumbs";
 
 /** REDUX SLICE & SELECTOR */
 const actionDispatch = (dispatch: Dispatch) => ({
-    setRestaurant: (data: Member) => dispatch(setRestaurant(data)),
+  setShop: (data: Member) => dispatch(setShop(data)),
     setChosenProduct: (data: Product) => dispatch(setChosenProduct(data)),
 });
 
@@ -36,10 +36,10 @@ const chosenProductRetriever = createSelector(
     })
 );
 
-const restaurantRetriever = createSelector(
-    retrieveRestaurant,
-    (restaurant) => ({
-        restaurant,
+const shopRetriever = createSelector(
+  retrieveShop,
+    (shop) => ({
+      shop,
     })
 );
 
@@ -50,10 +50,10 @@ interface ChosenProductProps {
 
 export default function ChosenProduct(props : ChosenProductProps) {
   const {onAdd} = props
-  const {setChosenProduct, setRestaurant} = actionDispatch(useDispatch());
+  const {setChosenProduct, setShop} = actionDispatch(useDispatch());
   const {productId} = useParams<{productId: string}>();
   const {chosenProduct} = useSelector(chosenProductRetriever);
-  const {restaurant} = useSelector(restaurantRetriever);
+  const {shop} = useSelector(shopRetriever);
 
 
   useEffect(() => {
@@ -68,8 +68,8 @@ export default function ChosenProduct(props : ChosenProductProps) {
         .catch(err => console.log(err));
 
     member
-        .getRestaurant()
-        .then((data) => setRestaurant(data))
+        .getShop()
+        .then((data) => setShop(data))
         .catch((err) => console.log(err));
 
     }, []);
@@ -100,8 +100,8 @@ export default function ChosenProduct(props : ChosenProductProps) {
         <Stack className={"chosen-product-info"}>
           <Box className={"info-box"}>
             <strong className={"product-name"}>{chosenProduct?.productName}</strong>
-            <span className={"resto-name"}>{restaurant?.memberNick}</span>
-            <span className={"resto-name"}>{restaurant?.memberPhone}</span>
+            <span className={"resto-name"}>{shop?.memberNick}</span>
+            <span className={"resto-name"}>{shop?.memberPhone}</span>
             <Box className={"rating-box"}>
               <Rating name="half-rating" defaultValue={2.5} precision={0.5}/>
               <div className={"evaluation-box"}>

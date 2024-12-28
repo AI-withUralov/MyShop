@@ -36,13 +36,13 @@ export default function Basket(props: BasketProps) {
 
   /** HANDLERS **/
   const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
-    setAnchorEl(e.currentTarget);
+    setAnchorEl(e.currentTarget); /// bosilgan button ochib beradi true da
   };
   const handleClose = () => {
-    setAnchorEl(null);
+    setAnchorEl(null); /// bosilgan button yopib beradi false da
   };
 
-  const proceedOrderHandler = async () => {
+  const proceedOrderHandler = async () => {  
     try {
       handleClose();
       if (!authMember) throw new Error(Messages.error2);

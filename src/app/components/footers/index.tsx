@@ -23,9 +23,9 @@ export default function Footer() {
               <img width={"100px"} src={"/icons/burak.svg"} />
             </Box>
             <Box className={"foot-desc-txt"}>
-              Focusing on the gourmet Turkish breakfast as well as the youth
-              society, CZN Burak Gurme aims to bring Turkish cuisine back. CZN
-              Burak Gurme creates an illusion with its cuisine.
+            Discover the ultimate shopping destination for men, women, unisex clothing, and footwear.
+            We offer a diverse range of stylish outfits and shoes for every occasion. 
+            From timeless classics to the latest fashion trends, we have something for everyone.
             </Box>
             <Box className="sns-context">
               <img src={"/icons/facebook.svg"} />
@@ -37,7 +37,7 @@ export default function Footer() {
           <Stack sx={{ ml: "288px" }} flexDirection={"row"}>
             <Stack>
               <Box>
-                <Box className={"foot-category-title"}>Bo'limlar</Box>
+                <Box className={"foot-category-title"}>Sections</Box>
                 <Box className={"foot-category-link"}>
                   <Link to="/">Home</Link>
                   <Link to="/products">Products</Link>
@@ -57,15 +57,15 @@ export default function Footer() {
                 >
                   <Box flexDirection={"row"} className={"find-us"}>
                     <span>L.</span>
-                    <div>Downtown, Dubai</div>
+                    <div>S.Korea, Daejong</div>
                   </Box>
                   <Box className={"find-us"}>
                     <span>P.</span>
-                    <div>+971 4 554 7777</div>
+                    <div>+971 4 232 7777</div>
                   </Box>
                   <Box className={"find-us"}>
                     <span>E.</span>
-                    <div>devexuz@gmail.com</div>
+                    <div>sherzoduralov@gmail.com</div>
                   </Box>
                   <Box className={"find-us"}>
                     <span>H.</span>
@@ -81,7 +81,7 @@ export default function Footer() {
           sx={{ mt: "80px" }}
         ></Stack>
         <Stack className={"copyright-txt"}>
-          © Copyright Devex Global, All rights reserved.
+          © Copyright Shop Global, All rights reserved.
         </Stack>
       </Container>
     </Footers>

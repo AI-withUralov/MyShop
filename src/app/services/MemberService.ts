@@ -22,16 +22,16 @@ class MemberService {
         }
     }
 
-    public async getRestaurant(): Promise<Member> {
+    public async getShop(): Promise<Member> {
         try {
-            const url = this.path + "/member/restaurant";
+            const url = this.path + "/member/admin";
             const result = await axios.get(url);
-            console.log("getRestaurant:", result);
+            console.log("getAdmin:", result);
     
-            const restaurant: Member = result.data;
-            return restaurant;
+            const admin: Member = result.data;
+            return admin;
         } catch (err) {
-            console.log("Error, getRestaurant:", err);
+            console.log("Error, getAdmin:", err);
             throw err;
         }
     }
@@ -74,7 +74,7 @@ class MemberService {
       public async logout(): Promise<void> {
         try {
           const url = this.path + "/member/logout";
-          const result = await axios.post(url, {}, { withCredentials: true });
+          const result = await axios.post(url, {}, { withCredentials: true }); // cookieni birga olib keladi
       
           console.log("logout:", result);
       

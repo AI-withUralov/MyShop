@@ -9,7 +9,7 @@ export const store = configureStore({
     // @ts-ignore
     getDefaultMiddleware().concat(reduxLogger),
   reducer: {
-    homePage: HomePageReducer,
+    homePage: HomePageReducer, // 5 --- export qilinga HomePageReducerni joylaymiz
     productsPage: ProductsPageReducer,
     ordersPage: OrdersPageReducer
   },

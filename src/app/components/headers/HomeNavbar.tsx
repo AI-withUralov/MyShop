@@ -45,7 +45,7 @@ export default function HomeNavbar(props: HomeNavbarProps) {
             <Stack className="menu">
                 <Box>
                     <NavLink to={'/'}>
-                        <img className="brand-logo" src="/icons/burak.svg" />
+                        <h1 className="brand-name">Fit & Fab</h1>
                     </NavLink>
                 </Box>
 
@@ -132,22 +132,23 @@ export default function HomeNavbar(props: HomeNavbarProps) {
 
                 </Stack>
             </Stack>
-            <Stack className={"header-frame"}>
+            <div className={"header-frame"}>
                 <Stack className={"detail"}>
                     <Box className={"head-main-text"}>
-                        World's Most Delicious Cousine
+                    From timeless classics to the latest fashion trends,
                     </Box>
                     <Box className={"wel-txt"}>
-                        The Choice, not just a choice
+                    we have something for everyone!
                     </Box>
                     <Box className={"service-text"}>
-                        24 hours service
+                        24 hours service.
                     </Box>
                     <Box className={"signup"}>
                         {!authMember ? (
                             <Button 
+                            color={"primary"}
                             variant={"contained"} 
-                            className={"signup-button"} onClick={()=> setSignupOpen(true)}>
+                            className={"signup-button"} onClick={()=> setSignupOpen(true) }>
                                 SIGN UP
                                 
                             </Button>
@@ -157,7 +158,7 @@ export default function HomeNavbar(props: HomeNavbarProps) {
                 <Box className={"logo-frame"}>
                     <div className={"logo-img"}></div>
                 </Box>
-            </Stack>
+            </div>
         </Container>
     </div>
     );

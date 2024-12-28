@@ -1,13 +1,11 @@
 import { Container } from "@mui/material";
 import Statistics from "./Statistics";
-import PopularDishes from "./PopularDishes";
-import NewDishes from "./NewDishes";
 import Advertisement from "./Advertisement";
 import ActiveUsers from "./AcitveUsers";
 import Events from "./Events";
 import { useDispatch} from "react-redux";
 import { Dispatch } from "@reduxjs/toolkit";
-import { setNewDishes, setPopularDishes, setTopUsers } from "./slice";
+import { setNewClothes, setPopularClothes, setTopUsers } from "./slice";
 import { Product } from "../../../lib/types/product";
 import { useEffect } from "react";
 import { ProductCollection } from "../../../lib/enums/product-enum";
@@ -15,17 +13,19 @@ import ProductService from "../../services/ProductService"
 import { Member } from "../../../lib/types/member";
 import MemberService from "../../services/MemberService";
 import '../../../css/home.css'
+import PopularClothes from "./PopularClothes";
+import NewClothes from "./NewClothes";
 
-/** REDUX SLICE & SELECTOR */
+/** REDUX SLICE */
 const actionDispatch = (dispatch: Dispatch) => ({
-  setPopularDishes: (data: Product[]) => dispatch(setPopularDishes(data)),
-  setNewDishes: (data: Product[]) => dispatch(setNewDishes(data)),
+  setPopularClothes: (data: Product[]) => dispatch(setPopularClothes(data)), // 2-- bu Slice.ts ni ichida gi mantiq orqali storega joylaydi
+  setNewClothes: (data: Product[]) => dispatch(setNewClothes(data)),
   setTopUsers: (data: Member[]) => dispatch(setTopUsers(data))
 });
 
 
 export default function HomePage() {
-  const { setPopularDishes, setNewDishes, setTopUsers } = actionDispatch(useDispatch());
+  const { setPopularClothes, setNewClothes, setTopUsers } = actionDispatch(useDispatch());
 
 useEffect(() => {
     // Backend server data fetch => Data
@@ -35,10 +35,11 @@ useEffect(() => {
             page: 1,
             limit: 4,
             order: "productViews",
-            productCollection: ProductCollection.DISH,
+            productCollection: ProductCollection.MEN,
         })
         .then((data) => {
-            setPopularDishes(data);
+          setPopularClothes(data);    /// 1-- Backenddan kelgan malumotni slice ga (Dispatch) beramiz
+          console.log("Data log: ", data)
         })
         .catch((err) => console.log(err));
 
@@ -48,13 +49,14 @@ useEffect(() => {
             limit: 4,
             order: "createdAt",
         })
-        .then((data) => setNewDishes(data))
+        .then((data) => {setNewClothes(data);console.log("datatest",data)})  // New Clothes data
+        
         .catch((err) => console.log(err));
     
     const member = new MemberService();
     member
         .getTopUsers()
-        .then((data) => setTopUsers(data))
+        .then((data) => setTopUsers(data)) // Top Users data
         .catch((err) => console.log(err));
     
 }, []);
@@ -64,8 +66,8 @@ useEffect(() => {
   return (
     <div className="homepage">
       <Statistics />
-      <PopularDishes />
-      <NewDishes />
+      <PopularClothes />
+      <NewClothes />
       <Advertisement />
       <ActiveUsers />
       <Events />

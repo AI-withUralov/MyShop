@@ -6,20 +6,20 @@ import {GlobalContext} from "../hooks/useGlobals";
 
 const ContextProvider: React.FC<{children: ReactNode}> = ({children}) => {
     const cookies = new Cookies();
-    if (!cookies.get("accessToken")) localStorage.removeItem("memberData");
+    if (!cookies.get("accessToken")) localStorage.removeItem("memberData"); // agar cookie bulmasa memberData uchirilib tashlanadi
 
-    const [authMember, setAuthMember] = useState<Member | null>(
+    const [authMember, setAuthMember] = useState<Member | null>(  // 3- authMember ni mantig'ini xosil qilib olamiz
         localStorage.getItem("memberData")
             ? JSON.parse(localStorage.getItem("memberData") as string)
             : null
     );
-    const [orderBuilder, setOrderBuilder] = useState<Date>(new Date());
+    const [orderBuilder, setOrderBuilder] = useState<Date>(new Date()); // 4 - orderBuilder ni qurib olamiz
     console.log("=== Verify ===");
 
     return (
-        <GlobalContext.Provider value={{authMember, setAuthMember, orderBuilder, setOrderBuilder}}>
+        <GlobalContext.Provider value={{authMember, setAuthMember, orderBuilder, setOrderBuilder}}> 
             {children}
         </GlobalContext.Provider>)
-};
+}; // 5 - yuqoridagi authMember va orderBuilderlarni GlobalContext value sifatida beramiz
 
-export default ContextProvider;
+export default ContextProvider; // 6 - natijani ContextProvider nomi bilan index.ts ni ichida Global integratsa qilish uchun export qilamiz

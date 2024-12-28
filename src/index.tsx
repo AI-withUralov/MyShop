@@ -2,22 +2,22 @@ import React from 'react';
 import {createRoot} from 'react-dom/client';
 import { Provider } from 'react-redux';
 import { store } from './app/store';
+import ContextProvider from './app/context/ContextProvider';
+import { ThemeProvider } from '@mui/material/styles';
+import theme from '././app/MaterialTheme';
+import CssBaseline from '@mui/material/CssBaseline';
+import { BrowserRouter as Router } from 'react-router-dom';
 import App from './app/App';
 import reportWebVitals from './reportWebVitals';
-import CssBaseline from '@mui/material/CssBaseline';
-import { ThemeProvider } from '@mui/material/styles';
 import './css/index.css';
-import theme from '././app/MaterialTheme';
-import { BrowserRouter as Router } from 'react-router-dom';
-import ContextProvider from './app/context/ContextProvider';
 
 const container = document.getElementById('root')!; // ! Typescriptga bu null emas deb aytadi.
 const root = createRoot(container);
 
 root.render(
-  <React.StrictMode>
+  <React.StrictMode>  
     <Provider store={store}>
-      <ContextProvider>
+      <ContextProvider>  
         <ThemeProvider theme={theme}>
           <CssBaseline/>
           <Router>
@@ -34,3 +34,4 @@ root.render(
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals(); // application qanday ishlayotganini tekshirsa buladi
 
+// React strictmode haqida

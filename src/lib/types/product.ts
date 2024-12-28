@@ -1,4 +1,4 @@
-import { ProductCollection, ProductSize, ProductStatus } from "../enums/product-enum";
+import { ProductCollection, ClothesSize, ProductStatus } from "../enums/product-enum";
 
 export interface Product {
     imagePath: string | undefined;
@@ -8,8 +8,8 @@ export interface Product {
     productName: string;
     productPrice: number;
     productLeftCount: number;
-    productSize: ProductSize;
-    productVolume: number;
+    clothesSize: ClothesSize;
+    shoesSize: string;
     productDesc?: string;
     productImages: string[];
     productViews: number;

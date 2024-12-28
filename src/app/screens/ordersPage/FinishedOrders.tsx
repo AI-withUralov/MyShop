@@ -5,8 +5,9 @@ import { useSelector } from "react-redux";
 import { Order, OrderItem } from "../../../lib/types/order";
 import { Product } from "../../../lib/types/product";
 import { serverApi } from "../../../lib/config";
-import { retrieveFinishedOrders, retrieveProcessOrders } from "./selector";
+import { retrieveFinishedOrders} from "./selector";
 import { createSelector } from '@reduxjs/toolkit';
+
 
 /** REDUX SLICE & SELECTOR */
 const finishedOrdersRetriever = createSelector(
@@ -16,6 +17,7 @@ const finishedOrdersRetriever = createSelector(
 
 export default function FinishedOrders() {
   const {finishedOrders} = useSelector(finishedOrdersRetriever)
+
   return (
     <TabPanel value="3">
       <Stack>

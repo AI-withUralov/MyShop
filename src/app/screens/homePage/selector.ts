@@ -1,19 +1,18 @@
 import { createSelector } from "reselect";
-import { AppRootState } from "../../../lib/types/screen";
+import { AppRootState, HomePageState } from "../../../lib/types/screen";
 
-const selectHomePage = (state: AppRootState) => state.homePage;
 
-export const retrievePopularDishes = createSelector(
-  selectHomePage,
-  (HomePage) => HomePage.popularDishes
+export const retrievePopularClothes = createSelector(
+  (state: AppRootState) => state.homePage,
+  (HomePage: HomePageState) => HomePage.popularClothes // 1 -- bu joyda storimizdagi HomePageStateni ichidagi popularClothesning datasini qulga olamiz
 );
 
-export const retrieveNewDishes = createSelector(
-  selectHomePage,
-  (HomePage) => HomePage.newDishes
+export const retrieveNewClothes = createSelector(
+  (state: AppRootState) => state.homePage,
+  (HomePage: HomePageState) => HomePage.newClothes
 );
 
 export const retrieveTopUsers = createSelector(
-  selectHomePage,
-  (HomePage) => HomePage.topUsers
+  (state: AppRootState) => state.homePage,
+  (HomePage: HomePageState) => HomePage.topUsers
 );

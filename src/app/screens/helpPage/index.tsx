@@ -14,17 +14,17 @@ import { faq } from "../../../lib/data/faq";
 import { terms } from "../../../lib/data/terms";
 
 export default function HelpPage() {
-  const [value, setValue] = React.useState("1");
+  const [value, setValue] = React.useState("1");  // tabni qaysi biri tanlanishi belgilaydi
 
   /** HANDLERS **/
   const handleChange = (e: React.SyntheticEvent, newValue: string) => {
-    setValue(newValue);
+    setValue(newValue);  // Tab bosilganda usha tabga utkazib beradi
   };
 
   return (
     <div className={"help-page"}>
       <Container className={"help-container"}>
-        <TabContext value={value}>
+        <TabContext value={value}> 
           <Box className={"help-menu"}>
             <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
               <Tabs

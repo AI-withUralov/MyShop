@@ -3,7 +3,6 @@ import Card from "@mui/joy/Card";
 import CardOverflow from "@mui/joy/CardOverflow";
 import { CssVarsProvider, Typography } from "@mui/joy";
 import AspectRatio from "@mui/joy/AspectRatio";
-
 import { useSelector } from "react-redux";
 import { createSelector } from "reselect";
 import { retrieveTopUsers } from "./selector";

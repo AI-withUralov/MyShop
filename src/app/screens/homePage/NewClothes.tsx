@@ -10,23 +10,23 @@ import Divider from "../../components/divider";
 
 import { useSelector } from "react-redux";
 import { createSelector } from "reselect";
-import { retrieveNewDishes } from "./selector";
+import { retrieveNewClothes } from "./selector";
 import { Product } from "../../../lib/types/product";
 import { serverApi } from "../../../lib/config";
 import { ProductCollection } from "../../../lib/enums/product-enum";
 
 /** REDUX SLICE & SELECTOR */
-const newDishesRetriever = createSelector(
-  retrieveNewDishes,
-  (newDishes) => ({
-    newDishes,
+const newClothesRetriever = createSelector(
+  retrieveNewClothes,
+  (newClothes) => ({
+    newClothes,
   })
 );
 
-export default function NewDishes() {
-  const { newDishes } = useSelector(newDishesRetriever);
+export default function NewClothes() {
+  const { newClothes } = useSelector(newClothesRetriever);
 
-  console.log("newDishes:", newDishes);
+  console.log("newClothes:", newClothes);
   return (
     <div className="new-products-frame">
       <Container>
@@ -34,18 +34,18 @@ export default function NewDishes() {
           <Box className="category-title">Fresh Menu</Box>
           <Stack className="cards-frame">
             <CssVarsProvider>
-                {newDishes.length !== 0 ? ( 
-              newDishes.map((product: Product) => {
+                {newClothes.length !== 0 ? ( 
+              newClothes.map((product: Product) => {
                 const imagePath = `${serverApi}/${product.productImages[0]}`
-                const sizeVolume =
-                  product.productCollection === ProductCollection.DRINK
-                    ? product.productVolume + " l"
-                    : product.productSize + " size";
+                const shoesSize =
+                  product.productCollection === ProductCollection.SHOES
+                    ? product.shoesSize 
+                    : product.clothesSize;
 
                 return (
                   <Card key={product._id} variant="outlined" className="card">
                     <CardOverflow>
-                      <div className="product-sale">{sizeVolume}</div>
+                      <div className="product-sale">{shoesSize}</div>
                       <AspectRatio ratio="1">
                         <img src={imagePath} alt="" />
                       </AspectRatio>

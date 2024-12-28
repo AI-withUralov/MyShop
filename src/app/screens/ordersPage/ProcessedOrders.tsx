@@ -16,7 +16,7 @@ import { OrderStatus } from "../../../lib/enums/order-enum";
 import OrderService from "../../services/OrderService";
 import { sweetErrorHandling } from "../../../lib/sweetAlert";
 
-/** REDUX SLICE & SELECTOR */
+/** REDUX SELECTOR */
 const processOrdersRetriever = createSelector(
   retrieveProcessOrders,
   (processOrders) => ({ processOrders })

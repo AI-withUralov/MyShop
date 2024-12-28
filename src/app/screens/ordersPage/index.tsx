@@ -20,7 +20,7 @@ import { serverApi } from "../../../lib/config";
 import { MemberType } from "../../../lib/enums/member-enum";
 import ProcessOrders from "./ProcessedOrders";
 
-
+/** REDUX SLICE */
 const actionDispatch = (dispatch: Dispatch) => ({
   setPausedOrders: (data: Order[]) => dispatch(setPausedOrders(data)),
   setProcessOrders: (data: Order[]) => dispatch(setProcessOrders(data)),
@@ -28,13 +28,12 @@ const actionDispatch = (dispatch: Dispatch) => ({
 });
 
 
-
 export default function OrdersPage() {
   const [value, setValue] = useState("1");
   const {setPausedOrders, setProcessOrders, setFinishedOrders} = actionDispatch(useDispatch());
-  const {orderBuilder, authMember} = useGlobals();
+  const {orderBuilder, authMember} = useGlobals(); // authMember va setOrderBuilder larni useGlobals dan qabul qilamiz
   const history = useHistory();
-  const [orderInquiry, setOrderInquiry] = useState<OrderInquery>({
+  const [orderInquiry, setOrderInquiry] = useState<OrderInquery>({  
     page: 1,
     limit: 5,
     orderStatus: OrderStatus.PAUSE,
@@ -42,7 +41,7 @@ export default function OrdersPage() {
 
   useEffect(() => {
     const order = new OrderService();
-
+    // Backend server data fetch => Data
     order.getMyOrders({...orderInquiry, orderStatus: OrderStatus.PAUSE})
     .then((data) => setPausedOrders(data))
     .catch((err) => console.log(err));
@@ -55,7 +54,7 @@ export default function OrdersPage() {
     .then((data) => setFinishedOrders(data))
     .catch((err) => console.log(err));
 
-  }, [orderInquiry, orderBuilder]);
+  }, [orderInquiry, orderBuilder]); // uzgarish bulganda orderni qayta qurib beradi
 
   const handleChange = (e: SyntheticEvent, newValue: string)  => {
     setValue(newValue);
@@ -104,7 +103,7 @@ export default function OrdersPage() {
                    <div className={"order-user-icon-box"}>
                   <img 
                   src={ 
-                    authMember?.memberType === MemberType.RESTAURANT 
+                    authMember?.memberType === MemberType.ADMIN 
                     ? "/icons/restaurant.svg" 
                     : "/icons/user-badge.svg"
                   }

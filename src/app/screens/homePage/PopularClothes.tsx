@@ -11,27 +11,27 @@ import DescriptionOutlinedIcon from '@mui/icons-material/DescriptionOutlined';
 
 import { useSelector } from "react-redux";
 import { createSelector } from "reselect";
-import { retrievePopularDishes } from "./selector";
+import { retrievePopularClothes } from "./selector";
 import { Product } from "../../../lib/types/product";
 import { serverApi } from "../../../lib/config";
 
-/** REDUX SLICE & SELECTOR */
-const popularDishesRetriever = createSelector(
-  retrievePopularDishes,
-  (popularDishes) => ({ popularDishes })
+/** REDUX SELECTOR */
+const popularClothesRetriever = createSelector(
+  retrievePopularClothes, // 2 -- selector.ts dagi retrievePopularClothes ni olib ichidan popularClothes ni ajratib olamiz
+  (popularClothes) => ({ popularClothes })
 );
 
 
-export default function PopularDishes() {
-  const {popularDishes} = useSelector(popularDishesRetriever)
+export default function PopularClothes() {
+  const {popularClothes} = useSelector(popularClothesRetriever) // 3 - bu yerda useSelector orqali yuqoridagi retrieverni ichidagi retrievePopularClothes ni ajratib olamiz 
   return (
     <div className="popular-dishes-frame">
       <Container>
         <Stack className="popular-section">
-          <Box className="category-title">Popular Dishes</Box>
+          <Box className="category-title">Popular Clothes</Box>
           <Stack className="cards-frame">
-          {popularDishes.length !== 0 ? ( 
-            popularDishes.map((product:Product) => {
+          {popularClothes.length !== 0 ? ( 
+            popularClothes.map((product:Product) => {
               const imagePath = `${serverApi}/${product.productImages[0]}`
               return (
                 <CssVarsProvider key={product._id}>
